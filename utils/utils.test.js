@@ -14,6 +14,13 @@ it('should add two numbers', () => {
     // }
 });
 
+it('should async add two numbers', (done) => {
+    utils.asyncAdd(4, 3, (sum) => {
+        expect(sum).toBe(7).toBeA('number');
+        done(); // use done to tell mocha it's asynchronous test
+    });
+});
+
 it('should return the square of supplied number', () => {
     let res = utils.square(3);
 
@@ -22,6 +29,13 @@ it('should return the square of supplied number', () => {
     // if(res != 9) {
     //     throw new Error(`Expected 9, but got ${res}`);
     // }
+});
+
+it('shoud return the async square of supplied number', (done) => {
+    utils.asyncSquare(3, (res) => {
+        expect(res).toBe(9).toBeA('number');
+        done();
+    });
 });
 
 it('should verify first and last names are set', () => {
